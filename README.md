@@ -38,3 +38,9 @@ But that number seems low, doesn't it? Would you really need 1200 cucumbers? May
 - [Google Maps Client API](https://developers.google.com/maps/web-services/client-library)
 - [Google Maps Distance Matrix](https://developers.google.com/maps/documentation/distance-matrix/start)
 - [Nutritionix](https://developer.nutritionix.com/)  
+
+### Dependencies
+
+- Node.js
+- Express
+- cors

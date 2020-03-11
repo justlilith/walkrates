@@ -11,3 +11,6 @@ function App() {
 }
 
 export default App;
+
+// const domContainer = document.querySelector('#root');
+// ReactDOM.render(e(App), domContainer);

@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e40642a4.chunk.css",
+    "main.js": "/static/js/main.82e15b6b.chunk.js",
+    "main.js.map": "/static/js/main.82e15b6b.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.4fad9c24.js",
+    "runtime-main.js.map": "/static/js/runtime-main.4fad9c24.js.map",
+    "static/js/2.3ee31e2a.chunk.js": "/static/js/2.3ee31e2a.chunk.js",
+    "static/js/2.3ee31e2a.chunk.js.map": "/static/js/2.3ee31e2a.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.a1c321905f1f966f12ed1497fed2cec6.js": "/precache-manifest.a1c321905f1f966f12ed1497fed2cec6.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.e40642a4.chunk.css.map": "/static/css/main.e40642a4.chunk.css.map",
+    "static/js/2.3ee31e2a.chunk.js.LICENSE.txt": "/static/js/2.3ee31e2a.chunk.js.LICENSE.txt",
+    "static/media/walkrates-logo.png": "/static/media/walkrates-logo.6fb67951.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4fad9c24.js",
+    "static/js/2.3ee31e2a.chunk.js",
+    "static/css/main.e40642a4.chunk.css",
+    "static/js/main.82e15b6b.chunk.js"
+  ]
+}
