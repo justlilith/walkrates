@@ -1,14 +1,11 @@
 import React from 'react';
 import './App.css';
+import Header from './components/Header.js';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          walkrates init
-        </p>
-      </header>
+      <Header />
     </div>
   );
 }
