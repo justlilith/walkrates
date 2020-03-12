@@ -1,9 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 import './App.css';
 import Info from './pages/Info.js'
 import Results from './pages/Results.js'
 import Settings from './pages/Settings.js'
+import Plot from './pages/Plot.js'
 
 const buttonSettingsHandler = (e) => {
   e.preventDefault();
@@ -17,7 +18,7 @@ function App() {
         <header
         className="App-header"
         >
-          <Link>
+          <Link to="/settings">
             <button
             type="submit"
             className="button-settings"
@@ -27,14 +28,44 @@ function App() {
           </Link>
         </header>
         <nav>
-          <li>
-            <ul>Info</ul>
-            <ul>Plot</ul>
-            <ul>Settings</ul>
-          </li>
+          <ul>
+            <li>
+              <Link to="/">
+                Info
+              </Link>
+            </li>
+            <li>
+              <Link to="/plot">
+                Plot
+              </Link>
+            </li>
+            <li>
+              <Link to="/results">
+                Results
+              </Link>
+            </li>
+            <li>
+              <Link to="/settings">
+                Settings
+              </Link>
+            </li>
+          </ul>
         </nav>
 
-
+        <Switch>
+          <Route exact path="/">
+            <Info></Info>
+          </Route>
+          <Route path="/plot">
+            <Plot></Plot>
+          </Route>
+          <Route path="/results">
+            <Results></Results>
+          </Route>
+          <Route path="/settings">
+            <Settings></Settings>
+          </Route>
+        </Switch>
 
       </Router>
     </div>
