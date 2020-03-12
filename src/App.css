@@ -95,3 +95,9 @@ code {
   color: hsl(80, 100%, 80%);
   font-size: 95%;
 }
+
+input.settings-buttons-radio {
+  display:block;
+  clear:both;
+  float:left;
+}

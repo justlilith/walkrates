@@ -20,7 +20,9 @@ function App() {
     start: "Austin",
     destination: "Las Vegas",
     food: "avocados",
-    foodNumber: 324327874
+    foodNumber: 324327874,
+    units: "metric",
+    height: "short"
   }
   
   const [appState, setState] = useState(init);
@@ -74,7 +76,10 @@ function App() {
             </Route>
             
             <Route path="/settings">
-              <Settings />
+              <Settings
+              appState={appState}
+              setAppState={setAppState}
+              setState={updateState}/>
             </Route>
           </Switch>
 

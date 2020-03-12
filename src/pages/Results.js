@@ -16,6 +16,10 @@ function Results(props) {
         <span> <code>{props.appState.destination}</code> </span>
         .
       </p>
+      <p>That's because you're a 
+        <span> <code>{props.appState.height}</code> </span>
+        person, and your stride reflects that. Sorry.
+      </p>
       <p>Would you like to eat something else? Head back to <code>plot</code>!</p>
     </div>
   );
