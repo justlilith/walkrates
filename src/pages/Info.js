@@ -9,8 +9,6 @@ function Info(props) {
       <p>On the <code>plot</code> page, choose your <code>starting point</code>, <code>destination</code>, and <code>favorite food</code>.
         We'll automagically figure out what you should bring on your journey if you don't want to starve.
       </p>
-      <button
-      onClick={props.setState.bind(this, "start", "Tucson")}></button>
       <p>When you're done, hit the <code>results</code>, and watch in mild horror as you realize you need 1000 <code>[FOOD ITEMS]</code> to make it to Vegas, baby.</p>
     </div>
   );

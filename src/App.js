@@ -34,12 +34,14 @@ function App() {
       }
     )
   }
-
-  const testState = (arg1, arg2) => {
-    updateState(arg1, arg2);
-    console.log(appState);
-  }
   
+  const setAppState = (newState) => {
+    setState(
+      newState
+      )
+      console.log(appState);
+    }
+
   return (
     <div className="App">
       <Router>
@@ -53,12 +55,15 @@ function App() {
 
           <Switch>
             <Route exact path="/">
-              <Info setState={testState}/>
+              <Info />
               <Navigation />
             </Route>
 
             <Route path="/plot">
-              <Plot />
+              <Plot
+              appState={appState} 
+              setAppState={setAppState}
+              setState={updateState}/>
               <Navigation />
             </Route>
             
