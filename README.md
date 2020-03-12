@@ -1,5 +1,6 @@
 # Walkrates
 ## (like the philosopher)
+**In-progress! Updates regularly**
 
 ### Rationale
 
@@ -31,6 +32,7 @@ But that number seems low, doesn't it? Would you really need 1200 cucumbers? May
 
 - Node.js
 - Google Maps Client API
+- Nutritionix
 - Heroku
 
 ### APIs Used
@@ -41,6 +43,7 @@ But that number seems low, doesn't it? Would you really need 1200 cucumbers? May
 
 ### Dependencies
 
+- React
 - Node.js
 - Express
 - cors

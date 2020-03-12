@@ -3,21 +3,21 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import './../App.css';
 
 function Navigation () {
-    return (
-        <div>
-            <Link to="/">
-                info
-            </Link>
+  return (
+    <nav>
+      <Link to="/">
+        info
+      </Link>
 
-            <Link to="/plot">
-                plot
-            </Link>
+      <Link to="/plot">
+        plot
+      </Link>
 
-            <Link to="/results">
-                results
-            </Link>
-        </div>
-)
+      <Link to="/results">
+        results
+      </Link>
+    </nav>
+  )
 }
 
 export default Navigation;

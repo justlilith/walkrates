@@ -44,9 +44,6 @@ function App() {
             
             <Route path="/settings">
               <Settings />
-              <Link to="/settings">
-                SETTINGS
-              </Link>
             </Route>
           </Switch>
 
