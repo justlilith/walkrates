@@ -8,11 +8,12 @@ function Results(props) {
       <p>&lt; Map &gt;</p>
       <p>
         You need to eat
-        <span> <code>11111</code> </span>
-        avocados to walk from 
-        <span> <code>Austin, TX</code> </span>
+        <span> <code>{props.appState.foodNumber}</code> </span>
+        <span> <code>{props.appState.food}</code> </span>
+        to walk from 
+        <span> <code>{props.appState.start}</code> </span>
         to
-        <span> <code>Las Vegas, NV</code> </span>
+        <span> <code>{props.appState.destination}</code> </span>
         .
       </p>
       <p>Would you like to eat something else? Head back to <code>plot</code>!</p>

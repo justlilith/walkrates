@@ -49,7 +49,7 @@ function Plot(props) {
         placeholder={pageState.start}
         // onSubmit = {(e) => {e.preventDefault()}}
         onChange={inputHandlerStart}></input>
-        <p>From where do you embark?</p>
+        <p className="subtle">From where do you embark?</p>
         
         <h2>Destination</h2>
         <input
@@ -58,7 +58,7 @@ function Plot(props) {
         placeholder={pageState.destination}
         onSubmit = {(e) => {e.preventDefault()}}
         onChange={inputHandlerDestination}></input>
-        <p>Where will your journey take you?</p>
+        <p className="subtle">Where will your journey take you?</p>
         
         <h2>Sustenance</h2>
         <input
@@ -67,7 +67,7 @@ function Plot(props) {
         placeholder={pageState.food}
         onSubmit = {(e) => {e.preventDefault()}}
         onChange={inputHandlerFood}></input>
-        <p>You gotta eat something. What is it?</p>
+        <p className="subtle">You gotta eat something. What is it?</p>
       </form>
       {/* <button
       onClick={props.setState.bind(this, "start", "Tucson")}>

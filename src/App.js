@@ -19,8 +19,8 @@ function App() {
   const init = {
     start: "Austin",
     destination: "Las Vegas",
-    food: "avocado",
-    foodNumber: 111
+    food: "avocados",
+    foodNumber: 324327874
   }
   
   const [appState, setState] = useState(init);
@@ -61,14 +61,15 @@ function App() {
 
             <Route path="/plot">
               <Plot
-              appState={appState} 
+              appState={appState}
               setAppState={setAppState}
               setState={updateState}/>
               <Navigation />
             </Route>
             
             <Route path="/results">
-              <Results />
+              <Results
+              appState={appState} />
               <Navigation />
             </Route>
             

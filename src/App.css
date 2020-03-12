@@ -17,8 +17,8 @@ body {
 .App-header {
   align-items: center;
   background-image: url('./assets/walkrates-logo.png');
-  background-size: contain;
-  background-size: 50%;
+  /* background-size: contain; */
+  background-size: 300px;
   background-repeat: no-repeat;
   background-position: center;
   background-color: hsl(320, 60%, 20%);
@@ -33,8 +33,14 @@ body {
 
 .content {
   /* color: White; */
+  display: inline-block;
   font-size: 1.5rem;
-  margin: 0px 100px 0px 100px;
+  margin: 0px 2rem 0px 2rem;
+  max-width: 600px;
+}
+
+nav {
+  margin-top:50px;
 }
 
 .button-settings {
@@ -47,8 +53,14 @@ body {
   padding: 10px;
 }
 
-nav {
-  margin-top:50px;
+input {
+  background-color: hsl(320, 50%, 5%);
+  border: thin solid hsl(320, 100%, 80%);
+  color: hsl(320, 100%, 100%);
+  font-size: 1.25rem;
+  margin: .5rem;
+  padding: 5px 20px;
+  text-align: center;
 }
 
 h1 {
@@ -68,6 +80,15 @@ a {
   margin: .5rem;
   padding: 5px 20px;
   text-decoration: none;
+}
+
+.content p {
+  text-align: left;
+}
+
+p.subtle {
+  font-size: 1rem;
+  text-align: center;
 }
 
 code {
