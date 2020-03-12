@@ -11,10 +11,9 @@ import Results from './pages/Results.js'
 import Settings from './pages/Settings.js'
 import Plot from './pages/Plot.js'
 import SettingsButton from './components/SettingsButton.js'
+import Navigation from './components/Navigation.js'
 
 function App() {
-
-
 
   return (
     <div className="App">
@@ -22,68 +21,36 @@ function App() {
         <header
         className="App-header"
         >
-          {/* <Link to="/settings">
-            <button
-            type="submit"
-            className="button-settings"
-            onClick="/">
-              [Settings]
-            </button>
-          </Link> */}
           <SettingsButton></SettingsButton>
         </header>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">
-                Info
-              </Link>
-            </li>
-            <li>
-            <Link to="/plot">
-              Plot
-            </Link>
-            </li>
-            <li>
-              <Link to="/results">
-                Results
-              </Link>
-            </li>
-            <li>
+          <div
+          className="content">
+
+          <Switch>
+            <Route exact path="/">
+              <Info />
+              <Navigation />
+            </Route>
+
+            <Route path="/plot">
+              <Plot />
+              <Navigation />
+            </Route>
+            
+            <Route path="/results">
+              <Results />
+              <Navigation />
+            </Route>
+            
+            <Route path="/settings">
+              <Settings />
               <Link to="/settings">
-                Settings
+                SETTINGS
               </Link>
-            </li>
-          </ul>
-        </nav>
+            </Route>
+          </Switch>
 
-        <Switch>
-          <Route exact path="/">
-            <Info></Info>
-            <Link to="/plot">
-              Plot
-            </Link>
-          </Route>
-          <Route path="/plot">
-            <Plot></Plot>
-            <Link to="/results">
-              Results
-            </Link>
-          </Route>
-          <Route path="/results">
-            <Results></Results>
-            <Link to="/plot">
-              Plot
-            </Link>
-          </Route>
-          <Route path="/settings">
-            <Settings></Settings>
-            <Link to="/settings">
-              Settings
-            </Link>
-          </Route>
-        </Switch>
-
+        </div>
       </Router>
     </div>
   );
