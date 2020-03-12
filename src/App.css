@@ -34,7 +34,8 @@ body {
   /* color: White; */
   display: inline-block;
   font-size: 1.5rem;
-  margin: 0px 2rem 0px 2rem;
+  padding:1rem;
+  margin-bottom:5rem;
   max-width: 600px;
 }
 
