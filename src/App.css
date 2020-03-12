@@ -17,15 +17,14 @@ body {
 .App-header {
   align-items: center;
   background-image: url('./assets/walkrates-logo.png');
-  /* background-size: contain; */
-  background-size: 300px;
+  background-size: 250px;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center 30px;
   background-color: hsl(320, 60%, 20%);
   color: white;
   display: flex;
   font-size: calc(10px + 2vmin);
-  height: 100px;
+  height: 125px;
   justify-content: flex-end;
   object-fit: contain;
   width: 100%;
