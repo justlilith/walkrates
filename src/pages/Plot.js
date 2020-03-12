@@ -1,14 +1,14 @@
 import React from 'react';
 import './../App.css';
 
-function Info() {
+function Plot() {
   return (
     <header
       className="App-header"
     >
-      <img src={walkrateslogo} />
+      <p>Plot</p>
     </header>
   );
 }
 
-export default Info;
+export default Plot;

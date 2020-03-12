@@ -1,14 +1,14 @@
 import React from 'react';
 import './../App.css';
 
-function Info() {
+function Settings() {
   return (
     <header
       className="App-header"
     >
-      <img src={walkrateslogo} />
+        <p>Settings</p>
     </header>
   );
 }
 
-export default Info;
+export default Settings;

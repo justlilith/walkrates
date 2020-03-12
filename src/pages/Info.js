@@ -6,7 +6,7 @@ function Info() {
     <header
       className="App-header"
     >
-      <img src={walkrateslogo} />
+      <p>Info</p>
     </header>
   );
 }
