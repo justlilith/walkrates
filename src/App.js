@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -13,22 +13,47 @@ import Plot from './pages/Plot.js'
 import SettingsButton from './components/SettingsButton.js'
 import Navigation from './components/Navigation.js'
 
-function App() {
 
+function App() {
+  
+  const init = {
+    start: "Austin",
+    destination: "Las Vegas",
+    food: "avocado",
+    foodNumber: 111
+  }
+  
+  const [appState, setState] = useState(init);
+  
+  const updateState = (arg1, arg2) => {
+    let newprop = toString(arg1);
+
+    setState( 
+      {
+        ...appState, [newprop = arg1] : arg2
+      }
+    )
+  }
+
+  const testState = (arg1, arg2) => {
+    updateState(arg1, arg2);
+    console.log(appState);
+  }
+  
   return (
     <div className="App">
       <Router>
         <header
         className="App-header"
         >
-          <SettingsButton></SettingsButton>
+          <SettingsButton />
         </header>
           <div
           className="content">
 
           <Switch>
             <Route exact path="/">
-              <Info />
+              <Info setState={testState}/>
               <Navigation />
             </Route>
 
