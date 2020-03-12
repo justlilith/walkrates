@@ -34,15 +34,18 @@ function Settings(props) {
   const inputHandlerHeight = (e) => {
     if (e.target.value == "short") {
         updatePageState("height", "short");
+    } else if (e.target.value == "average") {
+        updatePageState("height", "average");
     } else {
-        updatePageState("height", "tall");
+      updatePageState("height", "tall");
     }
   }
 
   return (
     <div>
       <h1>Settings</h1>
-      <p>Units</p>
+      <h2 className="align-left">Units</h2>
+      
       <div className="settings-buttons-radio">
         <input
           type="radio"
@@ -52,6 +55,7 @@ function Settings(props) {
           onChange={inputHandlerUnits}></input>
         <label for="metric">Metric</label>
       </div>
+      
       <div className="settings-buttons-radio">
         <input
           type="radio"
@@ -62,9 +66,12 @@ function Settings(props) {
           onChange={inputHandlerUnits}></input>
         <label for="imperial">Imperial</label>
       </div>
+      
       <p className="subtle"><code>Metric</code> or <code>imperial</code>? You decide!</p>
-      <p>Height</p>
-      <div>
+      
+      <h2 className="align-left">Height</h2>
+      
+      <div className="settings-buttons-radio">
         <input
           type="radio"
           id="short"
@@ -74,7 +81,19 @@ function Settings(props) {
           onChange={inputHandlerHeight}></input>
         <label for="short">Short</label>
       </div>
-      <div>
+
+      <div className="settings-buttons-radio">
+        <input
+          type="radio"
+          id="average"
+          value="average"
+          name="height"
+          onSubmit = {(e) => {e.preventDefault()}}
+          onChange={inputHandlerHeight}></input>
+        <label for="average">Average</label>
+      </div>
+      
+      <div className="settings-buttons-radio">
         <input
           type="radio"
           id="tall"
@@ -84,7 +103,8 @@ function Settings(props) {
           onChange={inputHandlerHeight}></input>
         <label for="tall">Tall</label>
       </div>
-      <p className="subtle">You might consider yourself <code>short</code> or <code>tall</code>. I won't judge.</p>
+
+      <p className="subtle">You might consider yourself <code>short</code>, <code>average</code>, or <code>tall</code>. I won't judge.</p>
     </div>
   );
 }

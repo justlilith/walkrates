@@ -96,8 +96,12 @@ code {
   font-size: 95%;
 }
 
-input.settings-buttons-radio {
+.settings-buttons-radio {
   display:block;
   clear:both;
-  float:left;
+  text-align: left;
+}
+
+.align-left {
+  text-align: left;
 }

@@ -19,8 +19,13 @@ express()
   .use(cors())
   .use(express.static(path.join(__dirname, 'build')))
 //   .use(express.static(path.join(__dirname, 'frontend')))
-  .get('/', (req, res) => res.sendFile(path.join(__dirname, '/build')))
   .get('/testing', (req, res) => console.log('woo!')) //just to make sure the routing is working
+  .get('/*', (req, res) => res.sendFile(path.join(__dirname, '/build'), function (err) {
+    if (err) {
+      res.status(500).send(err)
+    }
+  }
+  ))
   
   // .get('/frontend/', (req, res) => res.sendFile(path.join(__dirname, 'frontend/index.html')))
 
