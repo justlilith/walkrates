@@ -17,12 +17,13 @@ import Navigation from './components/Navigation.js'
 function App() {
   
   const init = {
-    start: "Austin",
     destination: "Las Vegas",
+    distance: 3301,
     food: "avocados",
     foodNumber: 324327874,
+    height: "short",
+    start: "Austin",
     units: "metric",
-    height: "short"
   }
   
   const [appState, setState] = useState(init);
