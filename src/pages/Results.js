@@ -21,6 +21,8 @@ function Results(props) {
       let onChangeHandler = function() {
         calculateAndDisplayRoute(directionsService, directionsRenderer);
       };
+
+      onChangeHandler();
       // document.getElementById('start').addEventListener('change', onChangeHandler);
       // document.getElementById('end').addEventListener('change', onChangeHandler);
     }
@@ -29,8 +31,8 @@ function Results(props) {
       directionsService.route(
         {
           origin: props.appState.start,
-          destination: {query: document.getElementById('end').value},
-          travelMode: 'DRIVING'
+          destination: props.appState.destination,
+          travelMode: 'WALKING'
         },
         function(response, status) {
           if (status === 'OK') {
@@ -48,8 +50,13 @@ function Results(props) {
     googleMapScript.id = "hello";
     googleMapScript.defer = true;
     const pageBody = document.getElementsByTagName("body")[0];
-    (document.getElementById("hello")) ? console.log("okay") : pageBody.append(googleMapScript);
+    document.getElementById("hello") ? swapScript(googleMapScript) : pageBody.append(googleMapScript);
     console.log("loaded");
+    
+      function swapScript (newscript) {
+        document.getElementById("hello").replaceWith(newscript);
+        console.log("okay")
+      }
   })
     
         return (
