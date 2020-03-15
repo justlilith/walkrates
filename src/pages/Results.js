@@ -1,11 +1,21 @@
-import React, { useEffect } from 'react';
+import React, { useEffect , useState} from 'react';
 import mapStyle from './../components/mapStyle'
 import './../App.css';
 
 function Results(props) {
+
+  const initDistance = 2;
+
+  const [distance , setDistance] = useState(initDistance);
+
+  const newDistance = (distance) => {
+    setDistance(distance);
+  }
   
   window.initMap = initMap;
   
+  let walkdistance = 1;
+
   function initMap() {
     const google = window.google;
 
@@ -47,7 +57,10 @@ function Results(props) {
             directionsRenderer.setDirections(response);
             console.log(props.appMapState);
             console.log(props.appParametersState);
-            props.newParametersState({...props.appParametersState, distanceMeters : response.routes[0].legs[0].distance.value})
+            // walkdistance = response.routes[0].legs[0].distance.value;
+            newDistance(response.routes[0].legs[0].distance.value);
+            // console.log(distance)
+            // props.newParametersState({...props.appParametersState, distanceMeters : response.routes[0].legs[0].distance.value})
             // console.log(response)
             // console.log(response.routes.legs)
             console.log(response.routes[0].legs[0].distance.value)
@@ -87,8 +100,8 @@ function Results(props) {
         to walk from 
         <span> <code>{props.appMapState.start}</code> </span>
         to
-        <span> <code>{props.appMapState.destination}</code> </span>
-        .
+        <span> <code>{props.appMapState.destination}</code></span>
+        , which is a distance of<span> <code>{distance}</code> </span>meters.
       </p>
       <p>That's because you're a 
         <span> <code>{props.appParametersState.height}</code> </span>

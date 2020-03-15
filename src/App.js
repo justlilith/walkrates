@@ -12,6 +12,7 @@ import Settings from './pages/Settings.js'
 import Plot from './pages/Plot.js'
 import SettingsButton from './components/SettingsButton.js'
 import Navigation from './components/Navigation.js'
+import { v4 as uuidv4 } from 'uuid';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
   const initMaps = {
     destination: "Las Vegas",
     start: "Austin",
+    id : uuidv4()
   }
 
   const initParameters = {
