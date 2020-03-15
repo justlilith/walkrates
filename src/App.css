@@ -105,3 +105,9 @@ code {
 .align-left {
   text-align: left;
 }
+
+#map {
+  height:500px;
+  width:100%;
+  border: thin solid hsl(320, 60%, 20%);
+}

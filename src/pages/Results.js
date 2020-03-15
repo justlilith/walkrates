@@ -2,30 +2,33 @@ import React, { useEffect } from 'react';
 import './../App.css';
 
 function Results(props) {
-
   
-  useEffect( () => {
-    
-    function initMap() {
-      let directionsService = new googleMapScript.google.maps.DirectionsService();
-      let directionsRenderer = new googleMapScript.google.maps.DirectionsRenderer();
-      let map = new googleMapScript.google.maps.Map(document.getElementById('map'), {
-        zoom: 7,
-        center: {lat: 41.85, lng: -87.65}
+  let props2 = props.appState;
+
+  window.initMap = initMap;
+  
+  function initMap(props2) {
+    const google = window.google;
+
+    let directionsService = new google.maps.DirectionsService();
+    let directionsRenderer = new google.maps.DirectionsRenderer();
+    let map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 7,
+      center: {lat: 41.85, lng: -87.65}
       });
       directionsRenderer.setMap(map);
       
       let onChangeHandler = function() {
         calculateAndDisplayRoute(directionsService, directionsRenderer);
       };
-      document.getElementById('start').addEventListener('change', onChangeHandler);
-      document.getElementById('end').addEventListener('change', onChangeHandler);
+      // document.getElementById('start').addEventListener('change', onChangeHandler);
+      // document.getElementById('end').addEventListener('change', onChangeHandler);
     }
     
     function calculateAndDisplayRoute(directionsService, directionsRenderer) {
       directionsService.route(
         {
-          origin: {query: document.getElementById('start').value},
+          origin: props.appState.start,
           destination: {query: document.getElementById('end').value},
           travelMode: 'DRIVING'
         },
@@ -38,16 +41,16 @@ function Results(props) {
         });
       }
 
+  useEffect( () => {
     const googleMapScript = document.createElement('script');
-
-      googleMapScript.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyD1LB91ClhUtlb1467yvx-Uf947k6X2bYs&callback=initMap";
-      googleMapScript.async = false;
-      googleMapScript.id = "hello";
-      googleMapScript.defer = true;
-      const pageBody = document.getElementsByTagName("body")[0];
-      (document.getElementById("hello")) ? console.log("okay") : pageBody.append(googleMapScript);
-      console.log("loaded");
-    })
+    googleMapScript.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyD1LB91ClhUtlb1467yvx-Uf947k6X2bYs&callback=initMap";
+    googleMapScript.async = true;
+    googleMapScript.id = "hello";
+    googleMapScript.defer = true;
+    const pageBody = document.getElementsByTagName("body")[0];
+    (document.getElementById("hello")) ? console.log("okay") : pageBody.append(googleMapScript);
+    console.log("loaded");
+  })
     
         return (
     <div>
