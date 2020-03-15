@@ -1,20 +1,20 @@
 import React, { useEffect } from 'react';
+import mapStyle from './../components/mapStyle'
 import './../App.css';
 
 function Results(props) {
   
-  let props2 = props.appState;
-
   window.initMap = initMap;
   
-  function initMap(props2) {
+  function initMap() {
     const google = window.google;
 
     let directionsService = new google.maps.DirectionsService();
     let directionsRenderer = new google.maps.DirectionsRenderer();
     let map = new google.maps.Map(document.getElementById('map'), {
       zoom: 7,
-      center: {lat: 41.85, lng: -87.65}
+      center: {lat: 41.85, lng: -87.65},
+      styles: mapStyle,
       });
       directionsRenderer.setMap(map);
       
@@ -28,19 +28,36 @@ function Results(props) {
     }
     
     function calculateAndDisplayRoute(directionsService, directionsRenderer) {
+
+      const google = window.google;
+      
+      // let mapUnits;
+      
+      // (props.appParametersState.units == "imperial") ? mapUnits = google.maps.UnitSystem.IMPERIAL : mapUnits = google.maps.UnitSystem.METRIC;
+
       directionsService.route(
         {
-          origin: props.appState.start,
-          destination: props.appState.destination,
+          origin: props.appMapState.start,
+          destination: props.appMapState.destination,
+          // unitSystem : mapUnits,
           travelMode: 'WALKING'
         },
         function(response, status) {
           if (status === 'OK') {
             directionsRenderer.setDirections(response);
+            console.log(props.appMapState);
+            console.log(props.appParametersState);
+            props.newParametersState({...props.appParametersState, distanceMeters : response.routes[0].legs[0].distance.value})
+            // console.log(response)
+            // console.log(response.routes.legs)
+            console.log(response.routes[0].legs[0].distance.value)
           } else {
-            window.alert('Directions request failed due to ' + status);
+            window.alert('Whoops! Whoopsie! The directions request failed due to ' + status);
           }
-        });
+        }
+        );
+        
+
       }
 
   useEffect( () => {
@@ -53,29 +70,28 @@ function Results(props) {
     document.getElementById("hello") ? swapScript(googleMapScript) : pageBody.append(googleMapScript);
     console.log("loaded");
     
-      function swapScript (newscript) {
-        document.getElementById("hello").replaceWith(newscript);
-        console.log("okay")
-      }
+    function swapScript (newscript) {
+      document.getElementById("hello").replaceWith(newscript);
+      console.log("okay")
+    }
   })
     
         return (
     <div>
       <h1>Results</h1>
-      <p>&lt; Map &gt;</p>
       <div id="map"></div>
       <p>
         You need to eat
-        <span> <code>{props.appState.foodNumber}</code> </span>
-        <span> <code>{props.appState.food}</code> </span>
+        <span> <code>{props.appParametersState.foodNumber}</code> </span>
+        <span> <code>{props.appParametersState.foodName}</code> </span>
         to walk from 
-        <span> <code>{props.appState.start}</code> </span>
+        <span> <code>{props.appMapState.start}</code> </span>
         to
-        <span> <code>{props.appState.destination}</code> </span>
+        <span> <code>{props.appMapState.destination}</code> </span>
         .
       </p>
       <p>That's because you're a 
-        <span> <code>{props.appState.height}</code> </span>
+        <span> <code>{props.appParametersState.height}</code> </span>
         person, and your stride reflects that. Sorry.
       </p>
       <p>Would you like to eat something else? Head back to <code>plot</code>!</p>

@@ -16,33 +16,56 @@ import Navigation from './components/Navigation.js'
 
 function App() {
   
-  const init = {
+  const initMaps = {
     destination: "Las Vegas",
-    distance: 3301,
-    food: "avocados",
-    foodNumber: 324327874,
-    height: "short",
     start: "Austin",
+  }
+
+  const initParameters = {
+    distanceMeters: 2345234,
+    foodName: "avocados",
+    foodNumber : 123432,
+    calories: 300,
+    height: "short",
     units: "metric",
   }
   
-  const [appState, setState] = useState(init);
+  const [appMapState, setMapState] = useState(initMaps);
+
+  const [appParametersState, setParametersState] = useState(initParameters);
   
-  const updateState = (arg1, arg2) => {
+  const updateMapState = (arg1, arg2) => {
     let newprop = toString(arg1);
 
-    setState( 
+    setMapState( 
       {
-        ...appState, [newprop = arg1] : arg2
+        ...appMapState, [newprop = arg1] : arg2
       }
     )
   }
   
-  const setAppState = (newState) => {
-    setState(
+  const newMapState = (newState) => {
+    setMapState(
       newState
       )
-      console.log(appState);
+      console.log(appMapState);
+    }
+
+  const updateParametersState = (arg1, arg2) => {
+    let newprop = toString(arg1);
+
+    setParametersState( 
+      {
+        ...appParametersState, [newprop = arg1] : arg2
+      }
+    )
+  }
+  
+  const newParametersState = (newState) => {
+    setParametersState(
+      newState
+      )
+      console.log(appParametersState);
     }
 
   return (
@@ -64,23 +87,30 @@ function App() {
 
             <Route path="/plot">
               <Plot
-              appState={appState}
-              setAppState={setAppState}
-              setState={updateState}/>
+              appMapState={appMapState}
+              newMapState={newMapState}
+              updateMapState={updateMapState}
+              appParametersState={appParametersState}
+              newParametersState={newParametersState}
+              />
               <Navigation />
             </Route>
             
             <Route path="/results">
               <Results
-              appState={appState} />
+              appMapState={appMapState}
+              newMapState={newMapState}
+              appParametersState={appParametersState}
+              newParametersState={newParametersState}
+              />
               <Navigation />
             </Route>
             
             <Route path="/settings">
               <Settings
-              appState={appState}
-              setAppState={setAppState}
-              setState={updateState}/>
+              appParametersState={appParametersState}
+              newParametersState={newParametersState}
+              />
             </Route>
           </Switch>
 

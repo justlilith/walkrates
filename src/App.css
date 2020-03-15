@@ -20,6 +20,7 @@ body {
   background-size: 250px;
   background-repeat: no-repeat;
   background-position: center 30px;
+  background-color: #52143d;
   background-color: hsl(320, 60%, 20%);
   color: white;
   display: flex;
@@ -47,14 +48,18 @@ nav {
   align-self: flex-end;
   border: none;
   background-color: #111;
+  /* border: thin solid #ff99dd; */
   /* border: thin solid hsl(320, 100%, 80%); */
+  color: #ff99dd;
   color: hsl(320, 100%, 80%);
   cursor: pointer;
   padding: 10px;
 }
 
 input {
+  background-color: #13060f;
   background-color: hsl(320, 50%, 5%);
+  border: thin solid #ff99dd;
   border: thin solid hsl(320, 100%, 80%);
   color: hsl(320, 100%, 100%);
   font-size: 1.25rem;
@@ -69,12 +74,15 @@ h1 {
 }
 
 h2 {
+  color: #ddff99;
   color: hsl(80, 100%, 80%);
   font-size: 2rem;
 }
 
 a {
+  border: thin solid #ff99dd;
   border: thin solid hsl(320, 100%, 80%);
+  color: #ff99dd;
   color: hsl(320, 100%, 80%);
   font-style: oblique;
   margin: .5rem;
@@ -92,6 +100,7 @@ p.subtle {
 }
 
 code {
+  color: #ddff99;
   color: hsl(80, 100%, 80%);
   font-size: 95%;
 }
@@ -109,5 +118,6 @@ code {
 #map {
   height:500px;
   width:100%;
+  border: thin solid #52143d;
   border: thin solid hsl(320, 60%, 20%);
 }

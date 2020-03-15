@@ -3,21 +3,33 @@ import './../App.css';
 
 function Plot(props) {
 
-  const init = props.appState
+  const initMapState = props.appMapState
+  const initParametersState = props.appMapState
 
-  const [pageState, setState] = useState(init)
+  const [pageMapState, setMapState] = useState(initMapState)
+  const [pageParametersState, setParametersState] = useState(initParametersState)
 
-  const updatePageState = (arg1, arg2,) => {
-    setState( 
+  const updatePageMapState = (arg1, arg2,) => {
+    setMapState( 
       {
-        ...pageState, [arg1] : arg2
+        ...pageMapState, [arg1] : arg2
+      },
+      )
+      // console.log(pageState);
+    }
+
+  const updatePageParametersState = (arg1, arg2,) => {
+    setParametersState( 
+      {
+        ...pageParametersState, [arg1] : arg2
       },
       )
       // console.log(pageState);
     }
 
     useEffect( ()=> {
-      props.setAppState(pageState)
+      props.newMapState(pageMapState)
+      props.newParametersState(pageParametersState)
     }
     )
 
@@ -25,16 +37,16 @@ function Plot(props) {
   //! Input Handlers
   const inputHandlerStart = (e) => {
     // e.preventDefault();
-    updatePageState("start", e.target.value);
+    updatePageMapState("start", e.target.value);
     // console.log(pageState)
   }
   const inputHandlerDestination = (e) => {
     e.preventDefault();
-    updatePageState("destination", e.target.value);
+    updatePageMapState("destination", e.target.value);
   }
   const inputHandlerFood = (e) => {
     e.preventDefault();
-    updatePageState("food", e.target.value);
+    updatePageParametersState("food", e.target.value);
   }
 
   return (
@@ -46,7 +58,7 @@ function Plot(props) {
         <input
         type="text"
         name="title"
-        placeholder={pageState.start}
+        placeholder={pageMapState.start}
         // onSubmit = {(e) => {e.preventDefault()}}
         onChange={inputHandlerStart}></input>
         <p className="subtle">From where do you embark?</p>
@@ -55,7 +67,7 @@ function Plot(props) {
         <input
         type="text"
         name="title"
-        placeholder={pageState.destination}
+        placeholder={pageMapState.destination}
         onSubmit = {(e) => {e.preventDefault()}}
         onChange={inputHandlerDestination}></input>
         <p className="subtle">Where will your journey take you?</p>
@@ -64,7 +76,7 @@ function Plot(props) {
         <input
         type="text"
         name="title"
-        placeholder={pageState.food}
+        placeholder={pageParametersState.food}
         onSubmit = {(e) => {e.preventDefault()}}
         onChange={inputHandlerFood}></input>
         <p className="subtle">You gotta eat something. What is it?</p>

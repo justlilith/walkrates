@@ -1,7 +1,7 @@
 import React from 'react';
 import './../App.css';
 
-function Info(props) {
+function Info() {
   return (
     <div>
       <h1>Let's Get Started</h1>

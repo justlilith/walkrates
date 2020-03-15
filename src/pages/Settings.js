@@ -3,7 +3,7 @@ import './../App.css';
 
 function Settings(props) {
 
-  const init = props.appState
+  const init = props.appParametersState
 
   const [pageState, setState] = useState(init)
 
@@ -17,7 +17,7 @@ function Settings(props) {
     }
 
     useEffect( ()=> {
-      props.setAppState(pageState)
+      props.newParametersState(pageState)
     }
     )
 
