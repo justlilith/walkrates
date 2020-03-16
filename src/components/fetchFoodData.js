@@ -6,11 +6,17 @@ async function fetchFoodData (props) {
     '?results=0%3A1&cal_min=0&cal_max=5000&fields=item_name%2Cbrand_name%2Citem_id%2Cbrand_id%2Cnf_calories&appId=' + 
     nutritionixAPIKeys["x-app-id"] + 
     '&appKey=' + 
-    nutritionixAPIKeys["x-app-key"]);
-  let data = await response.json()
-  let calories = data.hits[0].fields.nf_calories
+    nutritionixAPIKeys["x-app-key"])
+  let data = await response.json();
+  let calories = 1
+  try {
+    calories = data.hits[0].fields.nf_calories
+    return calories
+  } catch (error) {
+    console.log("API is down! :\\ " + error)
+    return "X"
+  }
   // console.log(calories)
-  return calories
     };
 
 export default fetchFoodData;

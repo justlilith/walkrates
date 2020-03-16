@@ -90,11 +90,18 @@ function Results(props) {
       console.log("okay")
     };    
 
-    fetchFoodData(props).then((e) => {
-
+      fetchFoodData(props)
+    .then((e) => {
+      if (e === 'X') {
+        let newAmount = document.createElement('code')
+        newAmount.innerText = '"a large amount you can\'t see because the API hit its quota" amount of'
+        newAmount.id = "amountNeeded";
+    
+        document.getElementById('amountNeeded').replaceWith(newAmount)
+      } else {
       calories = e;
       const km = props.appParametersState.distanceMeters / 1000
-      const caloriesPerKilometer = 45
+      const caloriesPerKilometer = 50
     
       let strideMultiplier = 1;
     
@@ -112,26 +119,13 @@ function Results(props) {
 
       let newAmount = document.createElement('code')
       newAmount.innerText = Math.trunc(totalAmountNeeded)
-      googleMapScript.id = "amountNeeded";
+      newAmount.id = "amountNeeded";
   
       document.getElementById('amountNeeded').replaceWith(newAmount)
 
-      
+    }
+  })
 
-
-    });
-
-    // console.log("oh no " + fetchFoodData(props))
-
-    //   return e
-      
-    //   console.log('1 ' + km)
-    //   console.log('2 ' + calories)
-    //   console.log('3 ' + caloriesPerKilometer)
-    //   console.log('4 ' + strideMultiplier)
-
-    // return totalAmountNeeded
-      // }
 
       
   })

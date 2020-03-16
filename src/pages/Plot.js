@@ -4,16 +4,16 @@ import fetchFoodData from './../components/fetchFoodData.js';
 
 function Plot(props) {
 
-  fetchFoodData(props).then( (e) => {
-    let hello = e
-    console.log("Hello " + hello)
-  });
+  // fetchFoodData(props).then( (e) => {
+  //   let hello = e
+  //   console.log("Hello " + hello)
+  // });
 
   const initMapState = props.appMapState
   const initParametersState = props.appParametersState
 
-  const [pageMapState, setMapState] = useState(initMapState)
-  const [pageParametersState, setParametersState] = useState(initParametersState)
+  const [pageMapState, setMapState] = useState(props.appMapState)
+  const [pageParametersState, setParametersState] = useState(props.appParametersState)
 
   const updatePageMapState = (arg1, arg2,) => {
     setMapState( 
@@ -52,7 +52,7 @@ function Plot(props) {
   }
   const inputHandlerFood = (e) => {
     e.preventDefault();
-    updatePageParametersState("food", e.target.value);
+    updatePageParametersState("foodName", e.target.value);
   }
 
   return (
