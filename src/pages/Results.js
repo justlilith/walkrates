@@ -26,52 +26,50 @@ function Results(props) {
       center: {lat: 41.85, lng: -87.65},
       styles: mapStyle,
       });
-      directionsRenderer.setMap(map);
-      
-      let onChangeHandler = function() {
-        calculateAndDisplayRoute(directionsService, directionsRenderer);
-      };
-
-      onChangeHandler();
-      // document.getElementById('start').addEventListener('change', onChangeHandler);
-      // document.getElementById('end').addEventListener('change', onChangeHandler);
-    }
+    directionsRenderer.setMap(map);
     
-    function calculateAndDisplayRoute(directionsService, directionsRenderer) {
+    let onChangeHandler = function() {
+      calculateAndDisplayRoute(directionsService, directionsRenderer);
+    };
 
-      const google = window.google;
-      
-      // let mapUnits;
-      
-      // (props.appParametersState.units == "imperial") ? mapUnits = google.maps.UnitSystem.IMPERIAL : mapUnits = google.maps.UnitSystem.METRIC;
+    onChangeHandler();
+    // document.getElementById('start').addEventListener('change', onChangeHandler);
+    // document.getElementById('end').addEventListener('change', onChangeHandler);
+  }
+    
+  function calculateAndDisplayRoute(directionsService, directionsRenderer) {
 
-      directionsService.route(
-        {
-          origin: props.appMapState.start,
-          destination: props.appMapState.destination,
-          // unitSystem : mapUnits,
-          travelMode: 'WALKING'
-        },
-        function(response, status) {
-          if (status === 'OK') {
-            directionsRenderer.setDirections(response);
-            console.log(props.appMapState);
-            console.log(props.appParametersState);
-            // walkdistance = response.routes[0].legs[0].distance.value;
-            newDistance(response.routes[0].legs[0].distance.value);
-            // console.log(distance)
-            // props.newParametersState({...props.appParametersState, distanceMeters : response.routes[0].legs[0].distance.value})
-            // console.log(response)
-            // console.log(response.routes.legs)
-            console.log(response.routes[0].legs[0].distance.value)
-          } else {
-            window.alert('Whoops! Whoopsie! The directions request failed due to ' + status);
-          }
+    const google = window.google;
+    
+    // let mapUnits;
+    
+    // (props.appParametersState.units == "imperial") ? mapUnits = google.maps.UnitSystem.IMPERIAL : mapUnits = google.maps.UnitSystem.METRIC;
+
+    directionsService.route(
+      {
+        origin: props.appMapState.start,
+        destination: props.appMapState.destination,
+        // unitSystem : mapUnits,
+        travelMode: 'WALKING'
+      },
+      function(response, status) {
+        if (status === 'OK') {
+          directionsRenderer.setDirections(response);
+          console.log(props.appMapState);
+          console.log(props.appParametersState);
+          // walkdistance = response.routes[0].legs[0].distance.value;
+          newDistance(response.routes[0].legs[0].distance.value);
+          // console.log(distance)
+          // props.newParametersState({...props.appParametersState, distanceMeters : response.routes[0].legs[0].distance.value})
+          // console.log(response)
+          // console.log(response.routes.legs)
+          console.log(response.routes[0].legs[0].distance.value)
+        } else {
+          window.alert('Whoops! Whoopsie! The directions request failed due to ' + status);
         }
-        );
-        
-
       }
+    );
+  }
 
   useEffect( () => {
     const googleMapScript = document.createElement('script');
@@ -86,10 +84,21 @@ function Results(props) {
     function swapScript (newscript) {
       document.getElementById("hello").replaceWith(newscript);
       console.log("okay")
-    }
+    };
+
+    // function fetchFoodData (props.appParametersState) {
+    //   fetch('')
+    //     .then( (response) => {
+
+    //     })
+    //     .then( (data) => {
+
+    //     });
+    //   };
+
   })
     
-        return (
+  return (
     <div>
       <h1>Results</h1>
       <div id="map"></div>
