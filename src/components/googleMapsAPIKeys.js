@@ -1,0 +1,3 @@
+const REACT_APP_GOOGLE_API_KEY = "AIzaSyD1LB91ClhUtlb1467yvx-Uf947k6X2bYs"
+
+export default REACT_APP_GOOGLE_API_KEY;
