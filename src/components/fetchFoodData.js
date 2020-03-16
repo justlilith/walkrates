@@ -1,4 +1,4 @@
-// import nutritionixAPIKeys from './../components/nutritionixAPIKeys.js';
+import { REACT_APP_NID_KEY , REACT_APP_NAPI_KEY } from './../components/nutritionixAPIKeys.js';
 
 async function fetchFoodData (props) {
   let response = await fetch('https://api.nutritionix.com/v1_1/search/' + 
