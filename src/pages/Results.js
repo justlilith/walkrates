@@ -94,7 +94,7 @@ function Results(props) {
     .then((e) => {
       if (e === 'X') {
         let newAmount = document.createElement('code')
-        newAmount.innerText = '"a large amount you can\'t see because the API hit its quota" amount of'
+        newAmount.innerText = '"a large number you can\'t see because the API hit its quota" amount of'
         newAmount.id = "amountNeeded";
     
         document.getElementById('amountNeeded').replaceWith(newAmount)
