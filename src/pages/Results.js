@@ -1,7 +1,7 @@
 import React, { useEffect , useState} from 'react';
 import mapStyle from './../components/mapStyle'
 import './../App.css';
-import REACT_APP_GOOGLE_API_KEY from './../components/googleMapsAPIKeys.js';
+// import REACT_APP_GOOGLE_API_KEY from './../components/googleMapsAPIKeys.js';
 import fetchFoodData from './../components/fetchFoodData.js';
 
 function Results(props) {

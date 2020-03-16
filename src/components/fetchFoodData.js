@@ -1,12 +1,12 @@
-import nutritionixAPIKeys from './../components/nutritionixAPIKeys.js';
+// import nutritionixAPIKeys from './../components/nutritionixAPIKeys.js';
 
 async function fetchFoodData (props) {
   let response = await fetch('https://api.nutritionix.com/v1_1/search/' + 
     props.appParametersState.foodName + 
     '?results=0%3A1&cal_min=0&cal_max=5000&fields=item_name%2Cbrand_name%2Citem_id%2Cbrand_id%2Cnf_calories&appId=' + 
-    nutritionixAPIKeys["x-app-id"] + 
+    REACT_APP_NID_KEY + 
     '&appKey=' + 
-    nutritionixAPIKeys["x-app-key"])
+    REACT_APP_NAPI_KEY)
   let data = await response.json();
   let calories = 1
   try {
