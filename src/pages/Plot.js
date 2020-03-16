@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import './../App.css';
+import fetchFoodData from './../components/fetchFoodData.js';
 
 function Plot(props) {
 
+  fetchFoodData(props).then( (e) => {
+    let hello = e
+    console.log("Hello " + hello)
+  });
+
   const initMapState = props.appMapState
-  const initParametersState = props.appMapState
+  const initParametersState = props.appParametersState
 
   const [pageMapState, setMapState] = useState(initMapState)
   const [pageParametersState, setParametersState] = useState(initParametersState)
@@ -76,7 +82,7 @@ function Plot(props) {
         <input
         type="text"
         name="title"
-        placeholder={pageParametersState.food}
+        placeholder={pageParametersState.foodName}
         onSubmit = {(e) => {e.preventDefault()}}
         onChange={inputHandlerFood}></input>
         <p className="subtle">You gotta eat something. What is it?</p>

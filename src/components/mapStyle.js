@@ -1,8 +1,8 @@
+// const darkRuby = "#13060f"
+// const hotPink = "#ff99dd"
 const lightGreen = "#ddff99"
-const mediumRuby = "#52143d"
 const nearBlack = "#111111"
-const darkRuby = "#13060f"
-const hotPink = "#ff99dd"
+// const mediumRuby = "#52143d"
 
 const mapStyle = [
             {elementType: 'geometry', stylers: [{color: '#242f3e'}]},

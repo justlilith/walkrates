@@ -24,7 +24,7 @@ function Settings(props) {
   
   //! Input Handlers
   const inputHandlerUnits = (e) => {
-    if (e.target.value == "metric") {
+    if (e.target.value === "metric") {
         updatePageState("units", "metric");
     } else {
         updatePageState("units", "imperial");
@@ -32,9 +32,9 @@ function Settings(props) {
   }
 
   const inputHandlerHeight = (e) => {
-    if (e.target.value == "short") {
+    if (e.target.value === "short") {
         updatePageState("height", "short");
-    } else if (e.target.value == "average") {
+    } else if (e.target.value === "average") {
         updatePageState("height", "average");
     } else {
       updatePageState("height", "tall");

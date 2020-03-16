@@ -27,4 +27,7 @@ yarn-error.log*
 /src/setupTests.js
 /src/App.test.js
 
+/src/components/nutritionixAPIKeys.js
+/src/components/googleMapsAPIKeys.js
+
 *.code-workspace

@@ -1,6 +1,8 @@
 import React, { useEffect , useState} from 'react';
 import mapStyle from './../components/mapStyle'
 import './../App.css';
+import REACT_APP_GOOGLE_API_KEY from './../components/googleMapsAPIKeys.js';
+import fetchFoodData from './../components/fetchFoodData.js';
 
 function Results(props) {
 
@@ -15,6 +17,8 @@ function Results(props) {
   window.initMap = initMap;
   
   let walkdistance = 1;
+  let calories = 1;
+  let amountNeeded = 1;
 
   function initMap() {
     const google = window.google;
@@ -73,7 +77,7 @@ function Results(props) {
 
   useEffect( () => {
     const googleMapScript = document.createElement('script');
-    googleMapScript.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyD1LB91ClhUtlb1467yvx-Uf947k6X2bYs&callback=initMap";
+    googleMapScript.src = "https://maps.googleapis.com/maps/api/js?key=" + REACT_APP_GOOGLE_API_KEY + "&callback=initMap";
     googleMapScript.async = true;
     googleMapScript.id = "hello";
     googleMapScript.defer = true;
@@ -84,19 +88,56 @@ function Results(props) {
     function swapScript (newscript) {
       document.getElementById("hello").replaceWith(newscript);
       console.log("okay")
-    };
+    };    
 
-    // function fetchFoodData (props.appParametersState) {
-    //   fetch('')
-    //     .then( (response) => {
+    fetchFoodData(props).then((e) => {
 
-    //     })
-    //     .then( (data) => {
+      calories = e;
+      const km = props.appParametersState.distanceMeters / 1000
+      const caloriesPerKilometer = 45
+    
+      let strideMultiplier = 1;
+    
+      if (props.appParametersState === 'short') {
+          strideMultiplier = .9}
+      else if (props.appParametersState === 'average') {
+        strideMultiplier = 1}
+      else {
+        strideMultiplier = 1.1
+      }
+    
+      let totalAmountNeeded = km * calories / caloriesPerKilometer * strideMultiplier
+      console.log('5 ' + totalAmountNeeded)
 
-    //     });
-    //   };
 
+      let newAmount = document.createElement('code')
+      newAmount.innerText = Math.trunc(totalAmountNeeded)
+      googleMapScript.id = "amountNeeded";
+  
+      document.getElementById('amountNeeded').replaceWith(newAmount)
+
+      
+
+
+    });
+
+    // console.log("oh no " + fetchFoodData(props))
+
+    //   return e
+      
+    //   console.log('1 ' + km)
+    //   console.log('2 ' + calories)
+    //   console.log('3 ' + caloriesPerKilometer)
+    //   console.log('4 ' + strideMultiplier)
+
+    // return totalAmountNeeded
+      // }
+
+      
   })
+
+
+
     
   return (
     <div>
@@ -104,7 +145,7 @@ function Results(props) {
       <div id="map"></div>
       <p>
         You need to eat
-        <span> <code>{props.appParametersState.foodNumber}</code> </span>
+        <span> <code id='amountNeeded'>...loading</code> </span>
         <span> <code>{props.appParametersState.foodName}</code> </span>
         to walk from 
         <span> <code>{props.appMapState.start}</code> </span>
@@ -117,6 +158,7 @@ function Results(props) {
         person, and your stride reflects that. Sorry.
       </p>
       <p>Would you like to eat something else? Head back to <code>plot</code>!</p>
+      <p className="subtle">Food data provided by <a className="nutritionix" href="http://www.nutritionix.com/api">Nutritionix API</a></p>
     </div>
   );
 }

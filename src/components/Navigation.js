@@ -1,19 +1,25 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './../App.css';
 
 function Navigation () {
   return (
     <nav>
-      <Link to="/">
+      <Link
+      className="navLink"
+      to="/">
         info
       </Link>
 
-      <Link to="/plot">
+      <Link
+      className="navLink"
+      to="/plot">
         plot
       </Link>
 
-      <Link to="/results">
+      <Link
+      className="navLink"
+      to="/results">
         results
       </Link>
     </nav>

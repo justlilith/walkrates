@@ -79,7 +79,7 @@ h2 {
   font-size: 2rem;
 }
 
-a {
+.navLink {
   border: thin solid #ff99dd;
   border: thin solid hsl(320, 100%, 80%);
   color: #ff99dd;
@@ -87,6 +87,12 @@ a {
   font-style: oblique;
   margin: .5rem;
   padding: 5px 20px;
+  text-decoration: none;
+}
+
+.nutritionix {
+  color: #ff99dd;
+  color: hsl(320, 100%, 80%);
   text-decoration: none;
 }
 
