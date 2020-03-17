@@ -35,9 +35,9 @@ function Settings(props) {
     if (e.target.value === "short") {
         updatePageState("height", "short");
     } else if (e.target.value === "average") {
-        updatePageState("height", "average");
+        updatePageState("height", "kinda average");
     } else {
-      updatePageState("height", "tall");
+      updatePageState("height", "mega tall");
     }
   }
 

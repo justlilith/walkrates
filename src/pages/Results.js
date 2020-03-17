@@ -149,7 +149,7 @@ function Results(props) {
       </p>
       <p>That's because you're a 
         <span> <code>{props.appParametersState.height}</code> </span>
-        person, and your stride reflects that. Sorry.
+        person, and your stride reflects that. Sorry. <span id='subtle'>You can change your heght in the settings up there.</span>
       </p>
       <p>Would you like to eat something else? Head back to <code>plot</code>!</p>
       <p className="subtle">Food data provided by <a className="nutritionix" href="http://www.nutritionix.com/api">Nutritionix API</a></p>
