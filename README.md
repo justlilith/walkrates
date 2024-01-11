@@ -1,6 +1,6 @@
 # Walkrates
 ## (like the philosopher)
-**In-progress! Updates regularly**
+**Maintained irregularly**
 
 ### Rationale
 
