@@ -1,6 +1,6 @@
 # Walkrates
 ## (like the philosopher)
-**Maintained irregularly**
+**Not maintained**
 
 ### Rationale
 
