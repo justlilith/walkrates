@@ -3,17 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
-    "cors": "^2.8.5",
-    "express": "^4.18.2",
-    "node": "^13.14.0",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
-    "react-router-dom": "^5.3.4",
-    "react-scripts": "3.4.0",
-    "uuid": "^7.0.3"
+    "cors": "^2.X",
+    "express": "^4.X",
+    "node": "^21.X",
+    "react": "^18.X",
+    "react-dom": "^18.X",
+    "react-router-dom": "^6.X",
+    "react-scripts": "^5.X",
+    "uuid": "^9.X"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -35,5 +32,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.2.0",
+    "@testing-library/react": "^14.X",
+    "@testing-library/user-event": "^14.X"
   }
 }
