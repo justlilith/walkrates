@@ -10,7 +10,7 @@
     "react-dom": "^18.X",
     "react-router-dom": "^6.X",
     "react-scripts": "^5.X",
-    "uuid": "^9.X"
+    "uuid": "^14.0"
   },
   "scripts": {
     "start": "react-scripts start",
