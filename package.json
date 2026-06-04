@@ -8,7 +8,7 @@
     "node": "^21.X",
     "react": "^18.X",
     "react-dom": "^18.X",
-    "react-router-dom": "^6.X",
+    "react-router-dom": "^6.30",
     "react-scripts": "^5.X",
     "uuid": "^9.X"
   },
